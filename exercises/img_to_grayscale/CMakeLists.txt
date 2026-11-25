@@ -12,6 +12,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 set(INCLUDE_LIB includes_lib)
 set(EXTERNAL_LIB external_lib)
 
+add_subdirectory(
+  ${CMAKE_CURRENT_SOURCE_DIR}/../../common
+  ${CMAKE_BINARY_DIR}/common_lib/
+  )
+
 add_library(${INCLUDE_LIB})
 
 target_sources(
@@ -62,4 +67,5 @@ target_link_libraries(
   PRIVATE
     ${INCLUDE_LIB}
     ${EXTERNAL_LIB}
+    ${COMMON_LIB}
 )

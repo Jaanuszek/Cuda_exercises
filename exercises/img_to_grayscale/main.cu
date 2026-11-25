@@ -8,25 +8,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
 
-#include "abcd.cuh"
-
-struct cudaDeleter{
-    void operator()(void* ptr) const {
-        if(ptr)
-            CUDA_CHECK(cudaFree(ptr));
-    }
-};
-
-template <typename N>
-using cudaPtr = std::unique_ptr<N, cudaDeleter>;
-
-template <typename T>
-cudaPtr<T> make_cuda_unique(std::size_t count)
-{
-    T* ptr = nullptr;
-    CUDA_CHECK(cudaMalloc(reinterpret_cast<void**>(&ptr), count * sizeof(T)));
-    return cudaPtr<T>(ptr);
-}
+#include "cuda_common.cuh"
 
 __global__ void png_to_gray_scale(unsigned char* img_data, unsigned char* out_data, int w, int h, int n)
 {

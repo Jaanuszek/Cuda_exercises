@@ -1,7 +1,7 @@
 #pragma once
 
 #include <stdio.h>
-
+#include <memory>
 
 #define CUDA_CHECK(call)\
     do {\
@@ -20,7 +20,3 @@
         CUDA_CHECK(cudaGetLastError());\
         CUDA_CHECK(cudaDeviceSynchronize());\
     } while(0)
-
-
-
-__device__ __host__ void foo();
