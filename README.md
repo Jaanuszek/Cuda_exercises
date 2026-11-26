@@ -37,3 +37,16 @@ This task creates a blurry image simply by calculating the average of pixel valu
 **Image after:**
 
 ![image](exercises/img_blur/newImg.png)
+
+### Matrix Multiplication Basic
+
+[matrix_mul_basic](exercises/matrix_mul_basic)
+
+Matrix multiplication with different variants:
+- One thread computes one output
+- One thread computes one row
+- One thread computes one column
+
+Implemented also Matrix-vector multiplication.
+
+These kernels has zero optimization (didnt touch shared memory yet :()

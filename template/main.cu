@@ -2,6 +2,8 @@
 
 #include "abcd.cuh"
 
+#include "cuda_common.cuh"
+
 int main()
 {
     int *d_ptr = nullptr;
